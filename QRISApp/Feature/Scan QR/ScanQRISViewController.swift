@@ -64,7 +64,7 @@ class ScanQRISViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
             if let settingURL = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+                UIApplication.shared.open(settingURL)
             }
         }))
         
@@ -76,39 +76,44 @@ class ScanQRISViewController: UIViewController {
     }
     
     private func configureQRScanner() {
-        guard let device = AVCaptureDevice.default(for: .video) else {
-            print("Can't access camera")
-            return
-        }
-        
-        do {
-            let input = try AVCaptureDeviceInput(device: device)
-            captureSession.addInput(input)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
             
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession.addOutput(captureMetadataOutput)
+            self.captureSession.beginConfiguration()
             
-            let supportedTypes = captureMetadataOutput.availableMetadataObjectTypes
-            if supportedTypes.contains(where: { $0 == AVMetadataObject.ObjectType.qr }) {
-                captureMetadataOutput.metadataObjectTypes = [.qr]
-            } else {
-                print("QRCode isn't supported")
-                return
+            do {
+                guard let device = AVCaptureDevice.default(for: .video) else {
+                    print("Can't access camera")
+                    return
+                }
+                
+                let input = try AVCaptureDeviceInput(device: device)
+                self.captureSession.addInput(input)
+                
+                let captureMetadataOutput = AVCaptureMetadataOutput()
+                self.captureSession.addOutput(captureMetadataOutput)
+                
+                let supportedTypes = captureMetadataOutput.availableMetadataObjectTypes
+                if supportedTypes.contains(where: { $0 == AVMetadataObject.ObjectType.qr }) {
+                    captureMetadataOutput.metadataObjectTypes = [.qr]
+                } else {
+                    print("QRCode isn't supported")
+                    return
+                }
+                
+                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                
+                self.captureSession.commitConfiguration()
+                
+                DispatchQueue.main.async {
+                    self.createLivePreview(self.captureSession)
+                    self.createBackButton()
+                }
+                
+                self.captureSession.startRunning()
+            } catch {
+                print("\(error.localizedDescription)")
             }
-            
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.createLivePreview(self.captureSession)
-                self.createBackButton()
-            }
-            
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.captureSession.startRunning()
-            }
-        } catch {
-            print("\(error.localizedDescription)")
         }
     }
     

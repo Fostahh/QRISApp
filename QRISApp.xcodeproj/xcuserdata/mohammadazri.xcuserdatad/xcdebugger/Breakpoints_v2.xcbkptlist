@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0849FA8F-9B99-4066-8E7B-7FCE15B44FB1"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52E601F2-8CF8-4AEB-B33B-A33F424AEA75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QRISApp/Feature/Scan QR/ScanQRISViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "bindObservers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "52E601F2-8CF8-4AEB-B33B-A33F424AEA75 - 7100f09aa108b4a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QRISApp.ScanQRISViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "QRISApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammadazri/Desktop/BNI%20Assessment/QRISApp/QRISApp/Feature/Scan%20QR/ScanQRISViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "52E601F2-8CF8-4AEB-B33B-A33F424AEA75 - ce834ece3bc9346e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QRISApp.ScanQRISViewController.bindObservers() -&gt; ()"
+                  moduleName = "QRISApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammadazri/Desktop/BNI%20Assessment/QRISApp/QRISApp/Feature/Scan%20QR/ScanQRISViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B50AAB2-CDCF-494B-BF3F-EABD8A1F051E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QRISApp/Feature/Scan QR/ScanQRISViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ScanQRISViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
