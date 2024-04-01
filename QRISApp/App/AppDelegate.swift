@@ -15,9 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let navController = UINavigationController(rootViewController: HomeViewController())
+        navController.navigationBar.isHidden = true
+        navController.interactivePopGestureRecognizer?.isEnabled = false
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navController
+        self.window?.overrideUserInterfaceStyle = .light
         self.window?.makeKeyAndVisible()
         
         return true
