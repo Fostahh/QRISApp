@@ -14,6 +14,9 @@
 		72589F162BBAA7990089A237 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72589F152BBAA7990089A237 /* HomeViewController.xib */; };
 		72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619852BBADE1A000D131F /* ScanQRISViewController.swift */; };
 		72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619862BBADE1A000D131F /* ScanQRISViewController.xib */; };
+		72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AC2BBB4668000D131F /* String+Ext.swift */; };
+		72D619AF2BBB4673000D131F /* NSNumber+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */; };
+		72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619B02BBB4680000D131F /* UIStackView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		72589F152BBAA7990089A237 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		72D619852BBADE1A000D131F /* ScanQRISViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRISViewController.swift; sourceTree = "<group>"; };
 		72D619862BBADE1A000D131F /* ScanQRISViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanQRISViewController.xib; sourceTree = "<group>"; };
+		72D619AC2BBB4668000D131F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Ext.swift"; sourceTree = "<group>"; };
+		72D619B02BBB4680000D131F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		72589EFD2BBAA39F0089A237 /* QRISApp */ = {
 			isa = PBXGroup;
 			children = (
+				72D619A92BBB4650000D131F /* Utils */,
 				72589F142BBAA6040089A237 /* Feature */,
 				72589F132BBAA5F00089A237 /* App */,
 				72589F122BBAA5D90089A237 /* File System */,
@@ -108,6 +115,24 @@
 				72D619862BBADE1A000D131F /* ScanQRISViewController.xib */,
 			);
 			path = "Scan QR";
+			sourceTree = "<group>";
+		};
+		72D619A92BBB4650000D131F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				72D619AA2BBB4656000D131F /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		72D619AA2BBB4656000D131F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				72D619AC2BBB4668000D131F /* String+Ext.swift */,
+				72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */,
+				72D619B02BBB4680000D131F /* UIStackView+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				72589F032BBAA39F0089A237 /* HomeViewController.swift in Sources */,
+				72D619AF2BBB4673000D131F /* NSNumber+Ext.swift in Sources */,
 				72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */,
+				72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */,
+				72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */,
 				72589EFF2BBAA39F0089A237 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
