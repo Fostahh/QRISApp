@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723DF0AB2BBB514C006DF62D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723DF0A92BBB514C006DF62D /* PaymentViewController.swift */; };
+		723DF0AC2BBB514C006DF62D /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723DF0AA2BBB514C006DF62D /* PaymentViewController.xib */; };
+		723DF0AE2BBB6196006DF62D /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723DF0AD2BBB6196006DF62D /* Double+Ext.swift */; };
 		72589EFF2BBAA39F0089A237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72589EFE2BBAA39F0089A237 /* AppDelegate.swift */; };
 		72589F032BBAA39F0089A237 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72589F022BBAA39F0089A237 /* HomeViewController.swift */; };
 		72589F082BBAA3A00089A237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72589F072BBAA3A00089A237 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		723DF0A92BBB514C006DF62D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		723DF0AA2BBB514C006DF62D /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		723DF0AD2BBB6196006DF62D /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		72589EFB2BBAA39F0089A237 /* QRISApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRISApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72589EFE2BBAA39F0089A237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72589F022BBAA39F0089A237 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723DF0A82BBB513D006DF62D /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				723DF0A92BBB514C006DF62D /* PaymentViewController.swift */,
+				723DF0AA2BBB514C006DF62D /* PaymentViewController.xib */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		72589EF22BBAA39F0089A237 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +108,7 @@
 		72589F142BBAA6040089A237 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				723DF0A82BBB513D006DF62D /* Payment */,
 				72D619842BBADDF7000D131F /* Scan QR */,
 				72D619832BBADDDF000D131F /* Home */,
 			);
@@ -131,6 +147,7 @@
 				72D619AC2BBB4668000D131F /* String+Ext.swift */,
 				72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */,
 				72D619B02BBB4680000D131F /* UIStackView+Ext.swift */,
+				723DF0AD2BBB6196006DF62D /* Double+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -196,6 +213,7 @@
 				72589F0B2BBAA3A00089A237 /* LaunchScreen.storyboard in Resources */,
 				72589F082BBAA3A00089A237 /* Assets.xcassets in Resources */,
 				72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */,
+				723DF0AC2BBB514C006DF62D /* PaymentViewController.xib in Resources */,
 				72589F162BBAA7990089A237 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				723DF0AB2BBB514C006DF62D /* PaymentViewController.swift in Sources */,
 				72589F032BBAA39F0089A237 /* HomeViewController.swift in Sources */,
+				723DF0AE2BBB6196006DF62D /* Double+Ext.swift in Sources */,
 				72D619AF2BBB4673000D131F /* NSNumber+Ext.swift in Sources */,
 				72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */,
 				72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */,
