@@ -20,9 +20,11 @@
 		72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AC2BBB4668000D131F /* String+Ext.swift */; };
 		72D619AF2BBB4673000D131F /* NSNumber+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */; };
 		72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619B02BBB4680000D131F /* UIStackView+Ext.swift */; };
+		7FEDEEB82035D2BC65E36D8D /* Pods_QRISApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFE0F6E7446DDD2F95C4265 /* Pods_QRISApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38BE0A647B1698BAF1BDAD65 /* Pods-QRISApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRISApp.debug.xcconfig"; path = "Target Support Files/Pods-QRISApp/Pods-QRISApp.debug.xcconfig"; sourceTree = "<group>"; };
 		723DF0A92BBB514C006DF62D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		723DF0AA2BBB514C006DF62D /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		723DF0AD2BBB6196006DF62D /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		72D619AC2BBB4668000D131F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		72D619AE2BBB4673000D131F /* NSNumber+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+Ext.swift"; sourceTree = "<group>"; };
 		72D619B02BBB4680000D131F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		8B40E7CA51B6916B40CCBB9C /* Pods-QRISApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRISApp.release.xcconfig"; path = "Target Support Files/Pods-QRISApp/Pods-QRISApp.release.xcconfig"; sourceTree = "<group>"; };
+		EBFE0F6E7446DDD2F95C4265 /* Pods_QRISApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRISApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEDEEB82035D2BC65E36D8D /* Pods_QRISApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,8 @@
 			children = (
 				72589EFD2BBAA39F0089A237 /* QRISApp */,
 				72589EFC2BBAA39F0089A237 /* Products */,
+				BF47BB380452B68439FC3299 /* Pods */,
+				B3B55C2182B0B194F204B8D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +159,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B3B55C2182B0B194F204B8D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE0F6E7446DDD2F95C4265 /* Pods_QRISApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF47BB380452B68439FC3299 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38BE0A647B1698BAF1BDAD65 /* Pods-QRISApp.debug.xcconfig */,
+				8B40E7CA51B6916B40CCBB9C /* Pods-QRISApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72589F0F2BBAA3A00089A237 /* Build configuration list for PBXNativeTarget "QRISApp" */;
 			buildPhases = (
+				D3ABDB6A4E33E605B15F3015 /* [CP] Check Pods Manifest.lock */,
 				72589EF72BBAA39F0089A237 /* Sources */,
 				72589EF82BBAA39F0089A237 /* Frameworks */,
 				72589EF92BBAA39F0089A237 /* Resources */,
+				C4F9B45923A31BE49469DB16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +245,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4F9B45923A31BE49469DB16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRISApp/Pods-QRISApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QRISApp/Pods-QRISApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QRISApp/Pods-QRISApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3ABDB6A4E33E605B15F3015 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QRISApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72589EF72BBAA39F0089A237 /* Sources */ = {
@@ -371,12 +439,14 @@
 		};
 		72589F102BBAA3A00089A237 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BE0A647B1698BAF1BDAD65 /* Pods-QRISApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PKLN85RDQ6;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "QRISApp/File System/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -398,12 +468,14 @@
 		};
 		72589F112BBAA3A00089A237 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B40E7CA51B6916B40CCBB9C /* Pods-QRISApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PKLN85RDQ6;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "QRISApp/File System/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
