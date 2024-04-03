@@ -8,7 +8,9 @@
 import UIKit
 import AVFoundation
 
-class ScanQRISViewController: UIViewController {
+class ScanQRISViewController: UIViewController, ScanQRISView {
+    
+    var presenter: ScanQRISPresenter?
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -25,8 +27,6 @@ class ScanQRISViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bindObservers()
         requestCameraAccess()
     }
     
@@ -39,18 +39,13 @@ class ScanQRISViewController: UIViewController {
     }
     
     // MARK: Private Methods
-    private func bindObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    @objc private func appDidBecomeActive() {
-        requestCameraAccess()
-    }
     
     private func requestCameraAccess() {
         AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
             if granted {
-                self?.configureQRScanner()
+                DispatchQueue.global(qos: .background).async { [weak self] in
+                    self?.configureQRScanner()
+                }
             } else {
                 DispatchQueue.main.async { [weak self] in
                     self?.presentPermissionAlert()
@@ -59,63 +54,45 @@ class ScanQRISViewController: UIViewController {
         }
     }
     
-    private func presentPermissionAlert() {
-        let alert = UIAlertController(title: "Camera Access Denied", message: "Please grant access to the camera in Settings to continue.", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
-            if let settingURL = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(settingURL)
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
-        }))
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     private func configureQRScanner() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
-            
-            self.captureSession.beginConfiguration()
-            
-            do {
-                guard let device = AVCaptureDevice.default(for: .video) else {
-                    print("Can't access camera")
-                    return
-                }
-                
-                let input = try AVCaptureDeviceInput(device: device)
-                self.captureSession.addInput(input)
-                
-                let captureMetadataOutput = AVCaptureMetadataOutput()
-                self.captureSession.addOutput(captureMetadataOutput)
-                
-                let supportedTypes = captureMetadataOutput.availableMetadataObjectTypes
-                if supportedTypes.contains(where: { $0 == AVMetadataObject.ObjectType.qr }) {
-                    captureMetadataOutput.metadataObjectTypes = [.qr]
-                } else {
-                    print("QRCode isn't supported")
-                    return
-                }
-                
-                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                
-                self.captureSession.commitConfiguration()
-                
-                DispatchQueue.main.async {
-                    self.createLivePreview(self.captureSession)
-                    self.createBackButton()
-                }
-                
-                self.captureSession.startRunning()
-            } catch {
-                print("\(error.localizedDescription)")
+        
+        captureSession.beginConfiguration()
+        
+        do {
+            guard let device = AVCaptureDevice.default(for: .video) else {
+                print("Can't access camera")
+                return
             }
+            
+            let input = try AVCaptureDeviceInput(device: device)
+            captureSession.addInput(input)
+            
+            let captureMetadataOutput = AVCaptureMetadataOutput()
+            captureSession.addOutput(captureMetadataOutput)
+            
+            let supportedTypes = captureMetadataOutput.availableMetadataObjectTypes
+            if supportedTypes.contains(where: { $0 == AVMetadataObject.ObjectType.qr }) {
+                captureMetadataOutput.metadataObjectTypes = [.qr]
+            } else {
+                print("QRCode isn't supported")
+                return
+            }
+            
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            
+            captureSession.commitConfiguration()
+            
+            DispatchQueue.main.async {
+                self.createLivePreview(self.captureSession)
+                self.createBackButton()
+            }
+            
+            captureSession.startRunning()
+        } catch {
+            print("\(error.localizedDescription)")
         }
     }
+    
     
     private func createLivePreview(_ captureSession: AVCaptureSession) {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -135,7 +112,7 @@ class ScanQRISViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        presenter?.backToHomeScreen()
     }
     
     private func showQRISDetailTransaction(_ value: String) {
@@ -188,5 +165,24 @@ extension ScanQRISViewController: AVCaptureMetadataOutputObjectsDelegate {
             previewLayer?.removeFromSuperlayer()
             showQRISDetailTransaction(stringValue)
         }
+    }
+}
+
+extension ScanQRISViewController {
+    func presentPermissionAlert() {
+        let alert = UIAlertController(title: "Camera Access Denied", message: "Please grant access to the camera in Settings to continue.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { [weak self] _ in
+            if let settingURL = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingURL)
+                self?.createBackButton()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
 }
