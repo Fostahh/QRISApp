@@ -9,14 +9,11 @@ import UIKit
 
 protocol HomeRouter {
     func navigateToScanQRIS()
-}
-
-class LoginRouter {
-    var navController: UINavigationController?
+    func navigateToHistoryTransaction()
 }
 
 class HomeRouterImpl: HomeRouter {
-    var navController: UINavigationController?
+    weak var viewController: UIViewController?
     
     static func createModule() -> UIViewController {
         let router = HomeRouterImpl()
@@ -24,16 +21,19 @@ class HomeRouterImpl: HomeRouter {
         let interactor = HomeInteractorImpl()
         let presenter = HomePresenterImpl(router: router, interactor: interactor, view: view)
         
-        let navController = UINavigationController(rootViewController: view)
-        
         view.presenter = presenter
-        router.navController = navController
+        router.viewController = view
         
-        return navController
+        return view
     }
     
     func navigateToScanQRIS() {
         let viewController = ScanQRISRouterImpl.createModule()
-        self.navController?.pushViewController(viewController, animated: true)
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func navigateToHistoryTransaction() {
+        let viewController = HistoryTransactionsRouterImpl.createModule()
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

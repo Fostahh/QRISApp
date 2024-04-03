@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = HomeRouterImpl.createModule()
+        self.window?.rootViewController = UINavigationController(rootViewController: HomeRouterImpl.createModule())
         self.window?.overrideUserInterfaceStyle = .light
         self.window?.makeKeyAndVisible()
         

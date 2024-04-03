@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryTransactionsViewController" customModule="QRISApp" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="b5d-tp-PbQ" id="Edn-9u-Kwe"/>
+                <outlet property="tableView" destination="pTW-AR-p8Z" id="Rwk-YY-7aO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5d-tp-PbQ">
+                    <rect key="frame" x="16" y="421.33333333333331" width="361" height="34.333333333333314"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pTW-AR-p8Z">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="b5d-tp-PbQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4zM-XI-mEG"/>
+                <constraint firstItem="b5d-tp-PbQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="71M-Dy-NGV"/>
+                <constraint firstItem="pTW-AR-p8Z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MRS-Zf-fdX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pTW-AR-p8Z" secondAttribute="bottom" id="ODr-qh-k4I"/>
+                <constraint firstItem="pTW-AR-p8Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rmg-XF-FfQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pTW-AR-p8Z" secondAttribute="trailing" id="eF7-rj-8ex"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b5d-tp-PbQ" secondAttribute="trailing" constant="16" id="f4X-X2-aMk"/>
+                <constraint firstItem="b5d-tp-PbQ" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="uav-Rw-niR"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

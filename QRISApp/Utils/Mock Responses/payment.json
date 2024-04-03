@@ -1,5 +1,5 @@
 {
     "transaction_id": 1,
-    "payment_status": 2,
+    "payment_status": 1,
     "fee": 250000
 }

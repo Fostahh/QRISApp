@@ -10,21 +10,22 @@ import Foundation
 protocol HomePresenter: BasePresenter {
     func fetchUser()
     func navigateToScanQRIS()
+    func navigateToHistoryTransaction()
 }
 
 class HomePresenterImpl: HomePresenter {
-    let router: HomeRouter?
-    let interactor: HomeInteractor?
+    let router: HomeRouter
+    let interactor: HomeInteractor
     weak var view: HomeView?
     
-    init(router: HomeRouter?, interactor: HomeInteractor?, view: HomeView?) {
+    init(router: HomeRouter, interactor: HomeInteractor, view: HomeView?) {
         self.router = router
         self.interactor = interactor
         self.view = view
     }
     
     func fetchUser() {
-        interactor?.getUser { [weak self] result in
+        interactor.getUser { [weak self] result in
             switch result {
             case .success(let success):
                 self?.view?.update(with: success)
@@ -35,6 +36,10 @@ class HomePresenterImpl: HomePresenter {
     }
     
     func navigateToScanQRIS() {
-        router?.navigateToScanQRIS()
+        router.navigateToScanQRIS()
+    }
+    
+    func navigateToHistoryTransaction() {
+        router.navigateToHistoryTransaction()
     }
 }

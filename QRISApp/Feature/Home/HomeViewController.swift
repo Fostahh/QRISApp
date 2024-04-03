@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, HomeView {
     }
 
     @IBAction private func onHistoryButtonTapped(_ sender: UIButton) {
-        print("Ini \(#function)")
+        presenter?.navigateToHistoryTransaction()
     }
     
     @IBAction private func onPayQRISButtonTapped(_ sender: UIButton) {

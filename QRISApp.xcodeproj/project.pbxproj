@@ -40,6 +40,15 @@
 		7271D7592BBD6A10003695B6 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7582BBD6A10003695B6 /* PaymentView.swift */; };
 		7271D75C2BBD7A26003695B6 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D75B2BBD7A26003695B6 /* UserDefault.swift */; };
 		7271D75F2BBD7B94003695B6 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D75E2BBD7B94003695B6 /* UserEntity.swift */; };
+		7271D7632BBD9F00003695B6 /* HistoryTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7612BBD9F00003695B6 /* HistoryTransactionsViewController.swift */; };
+		7271D7642BBD9F00003695B6 /* HistoryTransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7271D7622BBD9F00003695B6 /* HistoryTransactionsViewController.xib */; };
+		7271D7662BBD9F0E003695B6 /* HistoryTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7652BBD9F0E003695B6 /* HistoryTransactionsView.swift */; };
+		7271D7682BBD9F17003695B6 /* HistoryTransactionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7672BBD9F17003695B6 /* HistoryTransactionsRouter.swift */; };
+		7271D76A2BBD9F1D003695B6 /* HistoryTransactionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7692BBD9F1D003695B6 /* HistoryTransactionsPresenter.swift */; };
+		7271D76C2BBD9F31003695B6 /* HistoryTransactionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D76B2BBD9F31003695B6 /* HistoryTransactionsInteractor.swift */; };
+		7271D7702BBDA36C003695B6 /* HistoryTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D76F2BBDA36C003695B6 /* HistoryTransactionResponse.swift */; };
+		7271D7722BBDA3B5003695B6 /* HistoryTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7712BBDA3B5003695B6 /* HistoryTransaction.swift */; };
+		7271D7782BBDADCB003695B6 /* history_transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7271D7772BBDADCB003695B6 /* history_transactions.json */; };
 		72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619852BBADE1A000D131F /* ScanQRISViewController.swift */; };
 		72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619862BBADE1A000D131F /* ScanQRISViewController.xib */; };
 		72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AC2BBB4668000D131F /* String+Ext.swift */; };
@@ -85,6 +94,15 @@
 		7271D7582BBD6A10003695B6 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		7271D75B2BBD7A26003695B6 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		7271D75E2BBD7B94003695B6 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		7271D7612BBD9F00003695B6 /* HistoryTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionsViewController.swift; sourceTree = "<group>"; };
+		7271D7622BBD9F00003695B6 /* HistoryTransactionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTransactionsViewController.xib; sourceTree = "<group>"; };
+		7271D7652BBD9F0E003695B6 /* HistoryTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionsView.swift; sourceTree = "<group>"; };
+		7271D7672BBD9F17003695B6 /* HistoryTransactionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionsRouter.swift; sourceTree = "<group>"; };
+		7271D7692BBD9F1D003695B6 /* HistoryTransactionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionsPresenter.swift; sourceTree = "<group>"; };
+		7271D76B2BBD9F31003695B6 /* HistoryTransactionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionsInteractor.swift; sourceTree = "<group>"; };
+		7271D76F2BBDA36C003695B6 /* HistoryTransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionResponse.swift; sourceTree = "<group>"; };
+		7271D7712BBDA3B5003695B6 /* HistoryTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransaction.swift; sourceTree = "<group>"; };
+		7271D7772BBDADCB003695B6 /* history_transactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = history_transactions.json; sourceTree = "<group>"; };
 		72D619852BBADE1A000D131F /* ScanQRISViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRISViewController.swift; sourceTree = "<group>"; };
 		72D619862BBADE1A000D131F /* ScanQRISViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanQRISViewController.xib; sourceTree = "<group>"; };
 		72D619AC2BBB4668000D131F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -129,6 +147,7 @@
 			children = (
 				7211918A2BBBE4F6006F1597 /* User.swift */,
 				7271D7502BBD67A2003695B6 /* Payment.swift */,
+				7271D7712BBDA3B5003695B6 /* HistoryTransaction.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 			children = (
 				721191932BBBEA74006F1597 /* response_user.json */,
 				7271D74C2BBD66F7003695B6 /* payment.json */,
+				7271D7772BBDADCB003695B6 /* history_transactions.json */,
 			);
 			path = "Mock Responses";
 			sourceTree = "<group>";
@@ -155,6 +175,7 @@
 			children = (
 				721191952BBBEBB4006F1597 /* UserResponse.swift */,
 				7271D74E2BBD671F003695B6 /* PaymentResponse.swift */,
+				7271D76F2BBDA36C003695B6 /* HistoryTransactionResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,9 +256,10 @@
 			children = (
 				7271D7472BBD6156003695B6 /* Reusable */,
 				721191992BBBF5B0006F1597 /* Base */,
+				72D619832BBADDDF000D131F /* Home */,
 				723DF0A82BBB513D006DF62D /* Payment */,
 				72D619842BBADDF7000D131F /* Scan QR */,
-				72D619832BBADDDF000D131F /* Home */,
+				7271D7602BBD9ED9003695B6 /* History Transactions */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -265,6 +287,19 @@
 				7271D75E2BBD7B94003695B6 /* UserEntity.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7271D7602BBD9ED9003695B6 /* History Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				7271D7672BBD9F17003695B6 /* HistoryTransactionsRouter.swift */,
+				7271D76B2BBD9F31003695B6 /* HistoryTransactionsInteractor.swift */,
+				7271D7692BBD9F1D003695B6 /* HistoryTransactionsPresenter.swift */,
+				7271D7652BBD9F0E003695B6 /* HistoryTransactionsView.swift */,
+				7271D7612BBD9F00003695B6 /* HistoryTransactionsViewController.swift */,
+				7271D7622BBD9F00003695B6 /* HistoryTransactionsViewController.xib */,
+			);
+			path = "History Transactions";
 			sourceTree = "<group>";
 		};
 		72D619832BBADDDF000D131F /* Home */ = {
@@ -391,8 +426,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7271D7642BBD9F00003695B6 /* HistoryTransactionsViewController.xib in Resources */,
 				72589F0B2BBAA3A00089A237 /* LaunchScreen.storyboard in Resources */,
 				72589F082BBAA3A00089A237 /* Assets.xcassets in Resources */,
+				7271D7782BBDADCB003695B6 /* history_transactions.json in Resources */,
 				72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */,
 				7271D74D2BBD66F7003695B6 /* payment.json in Resources */,
 				723DF0AC2BBB514C006DF62D /* PaymentViewController.xib in Resources */,
@@ -450,32 +487,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7271D76C2BBD9F31003695B6 /* HistoryTransactionsInteractor.swift in Sources */,
 				7271D7592BBD6A10003695B6 /* PaymentView.swift in Sources */,
 				721191912BBBE61F006F1597 /* HomeView.swift in Sources */,
 				7271D75C2BBD7A26003695B6 /* UserDefault.swift in Sources */,
 				7211919D2BBBF647006F1597 /* BasePresenter.swift in Sources */,
 				723DF0AB2BBB514C006DF62D /* PaymentViewController.swift in Sources */,
 				7271D7492BBD615F003695B6 /* LoadingView.swift in Sources */,
+				7271D7662BBD9F0E003695B6 /* HistoryTransactionsView.swift in Sources */,
 				7257D13D2BBD556500D2C402 /* HomeInteractor.swift in Sources */,
 				7257D13F2BBD578A00D2C402 /* ScanQRISInteractor.swift in Sources */,
 				7211918D2BBBE599006F1597 /* HomePresenter.swift in Sources */,
 				72589F032BBAA39F0089A237 /* HomeViewController.swift in Sources */,
 				723DF0AE2BBB6196006DF62D /* Double+Ext.swift in Sources */,
 				721191A12BBBF68C006F1597 /* ScanQRISPresenter.swift in Sources */,
+				7271D7632BBD9F00003695B6 /* HistoryTransactionsViewController.swift in Sources */,
 				72D619AF2BBB4673000D131F /* NSNumber+Ext.swift in Sources */,
 				7271D7572BBD6A06003695B6 /* PaymentPresenter.swift in Sources */,
 				7271D75F2BBD7B94003695B6 /* UserEntity.swift in Sources */,
 				7271D7532BBD69F4003695B6 /* PaymentRouter.swift in Sources */,
 				721191862BBBE47E006F1597 /* HomeRouter.swift in Sources */,
 				7271D7552BBD69FC003695B6 /* PaymentInteractor.swift in Sources */,
+				7271D7682BBD9F17003695B6 /* HistoryTransactionsRouter.swift in Sources */,
 				7271D74B2BBD63ED003695B6 /* UIView+Ext.swift in Sources */,
+				7271D7722BBDA3B5003695B6 /* HistoryTransaction.swift in Sources */,
 				7271D74F2BBD671F003695B6 /* PaymentResponse.swift in Sources */,
+				7271D7702BBDA36C003695B6 /* HistoryTransactionResponse.swift in Sources */,
 				7211918F2BBBE5F4006F1597 /* BaseInteractor.swift in Sources */,
 				72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */,
 				7211919F2BBBF683006F1597 /* ScanQRISView.swift in Sources */,
 				72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */,
 				7257D13B2BBD51C900D2C402 /* ScanQRISRouter.swift in Sources */,
 				7271D7512BBD67A2003695B6 /* Payment.swift in Sources */,
+				7271D76A2BBD9F1D003695B6 /* HistoryTransactionsPresenter.swift in Sources */,
 				72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */,
 				721191962BBBEBB4006F1597 /* UserResponse.swift in Sources */,
 				7211919B2BBBF5BD006F1597 /* BaseView.swift in Sources */,

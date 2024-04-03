@@ -8,7 +8,19 @@
 import Foundation
 
 extension Double {
-    public var IDR: String {
+    
+    var IDR: String {
         return NSNumber(value: Int(self)).toIDRCurrency()
     }
+    
+    var toTimeStamp: String {
+        let date = Date(timeIntervalSince1970: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        dateFormatter.locale = .current
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+    
 }

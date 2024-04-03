@@ -14,7 +14,7 @@ struct User {
 }
 
 extension User {
-    var toUserEntity: UserEntity {
+    var toEntity: UserEntity {
         UserEntity(
             id: id,
             username: username,
