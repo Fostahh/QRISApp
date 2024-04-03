@@ -10,6 +10,7 @@ import AVFoundation
 
 class ScanQRISViewController: UIViewController, ScanQRISView {
     
+    // MARK: Stub Properties
     var presenter: ScanQRISPresenter?
     
     // MARK: Private Properties
@@ -34,7 +35,7 @@ class ScanQRISViewController: UIViewController, ScanQRISView {
         }
     }
     
-    // MARK: Private Methods
+    // MARK: Stub Methods
     func showPermissionAlert() {
         let alert = UIAlertController(title: "Camera Access Denied", message: "Please grant access to the camera in Settings to continue.", preferredStyle: .alert)
         
@@ -97,6 +98,25 @@ class ScanQRISViewController: UIViewController, ScanQRISView {
         }
     }
     
+    func stopPreviewing() {
+        captureSession.stopRunning()
+        previewLayer?.removeFromSuperlayer()
+    }
+    
+    func showDetailTransaction(_ merchant: String, _ nominal: String, _ id: String) {
+        
+        detailQRISStackView.removeAllArrangedSubviews()
+        detailQRISStackView.isHidden = false
+        confirmPaymentButton.isHidden = false
+        
+        for i in 0...2 {
+            detailQRISStackView.addArrangedSubview(createLabel(i == 0 ? merchant : i == 1 ? nominal : id))
+        }
+        view.stopLoading()
+        view.layoutIfNeeded()
+    }
+    
+    // MARK: Private Methods
     private func createLivePreview(_ captureSession: AVCaptureSession) {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         if let previewLayer {
@@ -118,24 +138,6 @@ class ScanQRISViewController: UIViewController, ScanQRISView {
         presenter?.backToHomeScreen()
     }
     
-    func stopPreviewing() {
-        captureSession.stopRunning()
-        previewLayer?.removeFromSuperlayer()
-    }
-    
-    func showDetailTransaction(_ merchant: String, _ nominal: String, _ id: String) {
-        
-        detailQRISStackView.removeAllArrangedSubviews()
-        detailQRISStackView.isHidden = false
-        confirmPaymentButton.isHidden = false
-        
-        for i in 0...2 {
-            detailQRISStackView.addArrangedSubview(createLabel(i == 0 ? merchant : i == 1 ? nominal : id))
-        }
-        view.stopLoading()
-        view.layoutIfNeeded()
-    }
-    
     private func createLabel(_ text: String) -> UILabel {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 18)
@@ -147,7 +149,8 @@ class ScanQRISViewController: UIViewController, ScanQRISView {
         return label
     }
     
-    @IBAction func onConfirmPaymentButtonTapped(_ sender: UIButton) {
+    // MARK: IBActions
+    @IBAction private func onConfirmPaymentButtonTapped(_ sender: UIButton) {
         presenter?.requestProcessPayment()
     }
 }

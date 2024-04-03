@@ -61,6 +61,7 @@ class ScanQRISPresenterImpl: ScanQRISPresenter {
             case .success(let success):
                 self?.navigateToPaymentScreen(payment: success)
             case .failure(let failure):
+                
                 print("Ini \(#function) \(failure.localizedDescription)")
             }
         })

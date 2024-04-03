@@ -9,8 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeView {
     
+    // MARK: Stub Properties
     var presenter: HomePresenter?
     
+    // MARK: IBOutlets
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var balanceTitleLabel: UILabel!
     @IBOutlet private weak var balanceValueLabel: UILabel!
@@ -19,11 +21,16 @@ class HomeViewController: UIViewController, HomeView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         presenter?.fetchUser()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    // MARK: Stub Methods
     func update(with user: User) {
         userImageView.image = UIImage(named: "bobi")
         balanceTitleLabel.text = "Hi, welcome back \(user.username)!"
@@ -31,9 +38,10 @@ class HomeViewController: UIViewController, HomeView {
     }
     
     func update(with error: String) {
-        print("Ini error \(error)")
+        // MARK: TODO
     }
 
+    // MARK: IBActions
     @IBAction private func onHistoryButtonTapped(_ sender: UIButton) {
         presenter?.navigateToHistoryTransaction()
     }

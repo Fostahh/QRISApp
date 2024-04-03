@@ -20,7 +20,6 @@ class HomeInteractorImpl: HomeInteractor {
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
             let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-            print("userResponse: \(userResponse)")
             userDefaultModel.setUser(userResponse.toEntity)
             completion(.success(userResponse.toDomain))
         } catch {

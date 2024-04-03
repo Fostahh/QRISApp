@@ -26,7 +26,6 @@ class ScanQRISInteractorImpl: ScanQRISInteractor {
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
             let paymentResponse = try JSONDecoder().decode(PaymentResponse.self, from: data)
-            print("paymentResponse: \(paymentResponse)")
             completion(.success(paymentResponse.toDomain))
         } catch {
             completion(.failure(error))

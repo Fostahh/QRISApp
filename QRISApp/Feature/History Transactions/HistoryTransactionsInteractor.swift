@@ -18,7 +18,6 @@ class HistoryTransactionsInteractorImpl: HistoryTransactionsInteractor {
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
             let historyTransactionsResponseRoot = try JSONDecoder().decode(HistoryTransactionResponseRoot.self, from: data)
             let historyTransactionsResponse = historyTransactionsResponseRoot.data.records
-            print("historyTransactionsResponse \(historyTransactionsResponse)")
             completion(.success(HistoryTransactionResponse.toDomain(response: historyTransactionsResponse)))
         } catch {
             completion(.failure(error))

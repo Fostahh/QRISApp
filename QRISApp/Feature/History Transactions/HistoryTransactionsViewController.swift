@@ -24,7 +24,7 @@ class HistoryTransactionsViewController: UIViewController, HistoryTransactionsVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = false
         configureButton()
         configureTableView()
         presenter?.fetchHistoryTransactions()
@@ -64,14 +64,12 @@ class HistoryTransactionsViewController: UIViewController, HistoryTransactionsVi
 
 extension HistoryTransactionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Ini value \(#function) \(indexPath.row)")
     }
 }
 
 extension HistoryTransactionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Ini value \(#function)")
         return historyTransactions.count
     }
     
@@ -85,6 +83,5 @@ extension HistoryTransactionsViewController: UITableViewDataSource {
         
         return cell
     }
-    
     
 }
