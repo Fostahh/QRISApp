@@ -1,21 +1,21 @@
 //
-//  User.swift
+//  UserEntity.swift
 //  QRISApp
 //
-//  Created by Mohammad Azri on 02/04/24.
+//  Created by Mohammad Azri on 03/04/24.
 //
 
 import Foundation
 
-struct User {
+struct UserEntity: Codable {
     let id: Int
     let username: String
     let balance: Double
 }
 
-extension User {
-    var toUserEntity: UserEntity {
-        UserEntity(
+extension UserEntity {
+    var toUser: User {
+        User(
             id: id,
             username: username,
             balance: balance

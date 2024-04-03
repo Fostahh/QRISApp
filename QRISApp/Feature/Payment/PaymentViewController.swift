@@ -7,12 +7,9 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
-
-    private var currentBalance = Double(120_000)
-    private let exactSubstract = Double(50_000)
-    private let targetBalance = Double(70_000)
-    private var animator: UIViewPropertyAnimator?
+class PaymentViewController: UIViewController, PaymentView {
+    
+    var presenter: PaymentPresenter?
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var paymentStatusImageView: UIImageView!
@@ -21,41 +18,36 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decreaseMoney()
-    }
-    
-    func decreaseMoney() {
-        balanceLabel.text = "\(currentBalance.IDR)"
-        
-        animator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) { [weak self] in
-            guard let self else { return }
-            self.currentBalance -= 1.0
-            self.balanceLabel.text = "\(self.currentBalance.IDR)"
-        }
-        
-        animator?.addCompletion({ [weak self] _ in
-            guard let self else { return }
-            if self.currentBalance != self.targetBalance {
-                self.decreaseMoney()
-            } else {
-                self.balanceLabel.text = "Your current balance \(self.currentBalance.IDR)"
-                self.backButton.isHidden = false
-            }
-        })
-        
-        animator?.startAnimation()
+        presenter?.viewDidLoad()
     }
     
     @IBAction private func onBackButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        presenter?.backToHomeScreen()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let animator, animator.isRunning {
-            animator.stopAnimation(true)
-            self.currentBalance = self.targetBalance
-            self.balanceLabel.text = "Your current balance \(self.currentBalance.IDR)"
-            self.backButton.isHidden = false
+        presenter?.onTouchesBegan()
+    }
+    
+    func configViews(_ balance: String, _ paymentStatus: Payment.PaymentStatus) {
+        balanceLabel.text = balance
+        
+        switch paymentStatus {
+        case .success:
+            paymentStatusImageView.image = UIImage(named: "img-payment-success")
+        case .failed:
+            paymentStatusLabel.text = "Payment Failed"
+            paymentStatusImageView.image = UIImage(named: "img-payment-failed")
+            backButton.isHidden = false
+        }
+    }
+    
+    func updateBalanceLabel(_ balance: String, finished: Bool) {
+        if finished {
+            balanceLabel.text = "Your current balance \(balance)"
+            backButton.isHidden = false
+        } else {
+            balanceLabel.text = balance
         }
     }
 }

@@ -19,15 +19,15 @@ class HomeViewController: UIViewController, HomeView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         presenter?.fetchUser()
     }
     
     func update(with user: User) {
-        self.userImageView.image = UIImage(named: "bobi")
-        self.balanceTitleLabel.text = "Hi, welcome back \(user.username)!"
-        self.balanceValueLabel.text = user.balance.IDR
+        userImageView.image = UIImage(named: "bobi")
+        balanceTitleLabel.text = "Hi, welcome back \(user.username)!"
+        balanceValueLabel.text = user.balance.IDR
     }
     
     func update(with error: String) {
@@ -39,6 +39,6 @@ class HomeViewController: UIViewController, HomeView {
     }
     
     @IBAction private func onPayQRISButtonTapped(_ sender: UIButton) {
-        self.presenter?.navigateToScanQRIS()
+        presenter?.navigateToScanQRIS()
     }
 }

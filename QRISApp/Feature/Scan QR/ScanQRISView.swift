@@ -9,4 +9,8 @@ import Foundation
 
 protocol ScanQRISView: BaseView {
     var presenter: ScanQRISPresenter? { get set }
+    
+    func configCamera()
+    func showPermissionAlert()
+    func showDetailTransaction(_ merchant: String, _ nominal: String, _ id: String)
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ScanQRISRouter {
     func popToHomeScreen()
+    func navigateToPaymentScreen(payment: Payment)
 }
 
 class ScanQRISRouterImpl: ScanQRISRouter {
@@ -21,7 +22,6 @@ class ScanQRISRouterImpl: ScanQRISRouter {
         let presenter = ScanQRISPresenterImpl(router: router, interactor: interactor, view: view)
         
         view.presenter = presenter
-        
         router.viewController = view
         
         return view
@@ -29,5 +29,10 @@ class ScanQRISRouterImpl: ScanQRISRouter {
     
     func popToHomeScreen() {
         viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func navigateToPaymentScreen(payment: Payment) {
+        let viewController = PaymentRouterImpl.createModule(payment: payment)
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

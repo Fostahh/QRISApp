@@ -21,7 +21,7 @@ class HomeRouterImpl: HomeRouter {
     static func createModule() -> UIViewController {
         let router = HomeRouterImpl()
         let view = HomeViewController()
-        var interactor = HomeInteractorImpl()
+        let interactor = HomeInteractorImpl()
         let presenter = HomePresenterImpl(router: router, interactor: interactor, view: view)
         
         let navController = UINavigationController(rootViewController: view)
@@ -33,7 +33,7 @@ class HomeRouterImpl: HomeRouter {
     }
     
     func navigateToScanQRIS() {
-        let scanQRIS = ScanQRISRouterImpl.createModule()
-        self.navController?.pushViewController(scanQRIS, animated: true)
+        let viewController = ScanQRISRouterImpl.createModule()
+        self.navController?.pushViewController(viewController, animated: true)
     }
 }
