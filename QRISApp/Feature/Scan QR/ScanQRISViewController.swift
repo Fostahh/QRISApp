@@ -169,7 +169,7 @@ class ScanQRISViewController: UIViewController {
         return label
     }
     @IBAction func onConfirmPaymentButtonTapped(_ sender: UIButton) {
-        print("Ini \(#function)")
+        self.navigationController?.pushViewController(PaymentViewController(), animated: true)
     }
 }
 
