@@ -19,7 +19,7 @@ struct PaymentResponse: Codable {
 }
 
 extension PaymentResponse {
-    var toPayment: Payment {
+    var toDomain: Payment {
         Payment(
             id: id,
             fee: fee,

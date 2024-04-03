@@ -26,7 +26,7 @@ class PaymentInteractorImpl: PaymentInteractor {
             User(id: currentUser.id,
                  username: currentUser.username,
                  balance: balance
-                ).toUserEntity
+                ).toEntity
         )
     }
 }

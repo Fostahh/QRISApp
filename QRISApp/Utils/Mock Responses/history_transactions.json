@@ -1,0 +1,60 @@
+{
+    "data": {
+        "records": [
+            {
+                "merchant": "BNI",
+                "transaction_id": 1,
+                "fee": 250000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI Mock",
+                "transaction_id": 2,
+                "fee": 50000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI Mock Test",
+                "transaction_id": 3,
+                "fee": 125000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI",
+                "transaction_id": 1,
+                "fee": 250000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI Mock",
+                "transaction_id": 2,
+                "fee": 50000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI",
+                "transaction_id": 1,
+                "fee": 250000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI Mock",
+                "transaction_id": 2,
+                "fee": 50000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI",
+                "transaction_id": 1,
+                "fee": 250000,
+                "date": 1695096142
+            },
+            {
+                "merchant": "BNI Mock",
+                "transaction_id": 2,
+                "fee": 50000,
+                "date": 1695096142
+            },
+        ]
+    }
+}

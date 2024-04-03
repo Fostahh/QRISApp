@@ -15,20 +15,12 @@ struct UserResponse: Codable {
 
 extension UserResponse {
     
-    var toUserEntity: UserEntity {
-        UserEntity(
-            id: id,
-            username: username,
-            balance: balance
-        )
+    var toEntity: UserEntity {
+        UserEntity(id: id, username: username, balance: balance)
     }
     
-    var toUser: User {
-        User(
-            id: id,
-            username: username,
-            balance: balance
-        )
+    var toDomain: User {
+        User(id: id, username: username, balance: balance)
     }
     
 }
