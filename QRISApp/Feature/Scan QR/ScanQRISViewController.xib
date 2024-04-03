@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScanQRISViewController" customModule="QRISApp" customModuleProvider="target">
             <connections>
+                <outlet property="confirmPaymentButton" destination="U3x-ky-fAc" id="IUZ-0r-ROy"/>
+                <outlet property="detailQRISStackView" destination="joh-fg-ciS" id="TJK-n5-ILR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +19,40 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="joh-fg-ciS">
+                    <rect key="frame" x="16" y="428.33333333333331" width="361" height="20.333333333333314"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDo-fS-tfX">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3x-ky-fAc">
+                    <rect key="frame" x="96.666666666666686" y="464.66666666666669" width="200" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Gon-w5-JPN"/>
+                        <constraint firstAttribute="width" constant="200" id="TAy-AZ-rG3"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Confirm Payment"/>
+                    <connections>
+                        <action selector="onConfirmPaymentButtonTapped:" destination="-1" eventType="touchUpInside" id="0uG-mH-YFJ"/>
+                    </connections>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="joh-fg-ciS" secondAttribute="trailing" constant="16" id="9zx-48-gqp"/>
+                <constraint firstItem="joh-fg-ciS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="A9X-TA-AlT"/>
+                <constraint firstItem="U3x-ky-fAc" firstAttribute="top" secondItem="joh-fg-ciS" secondAttribute="bottom" constant="16" id="Eg8-w7-EDM"/>
+                <constraint firstItem="U3x-ky-fAc" firstAttribute="centerX" secondItem="joh-fg-ciS" secondAttribute="centerX" id="RKA-lv-2lN"/>
+                <constraint firstItem="joh-fg-ciS" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="bsX-f2-eHX"/>
+            </constraints>
             <point key="canvasLocation" x="-31" y="20"/>
         </view>
     </objects>

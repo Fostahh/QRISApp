@@ -17,10 +17,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewsLocalize()
+        configureViews()
     }
     
-    private func configureViewsLocalize() {
+    private func configureViews() {
+        userImageView.image = UIImage(named: "bobi")
         balanceTitleLabel.text = "Balance"
         historyButton.setTitle("History", for: .normal)
         payQRISButton.setTitle("Pay QRIS", for: .normal)
