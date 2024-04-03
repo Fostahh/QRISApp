@@ -12,6 +12,8 @@
 		72589F082BBAA3A00089A237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72589F072BBAA3A00089A237 /* Assets.xcassets */; };
 		72589F0B2BBAA3A00089A237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72589F092BBAA3A00089A237 /* LaunchScreen.storyboard */; };
 		72589F162BBAA7990089A237 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72589F152BBAA7990089A237 /* HomeViewController.xib */; };
+		72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619852BBADE1A000D131F /* ScanQRISViewController.swift */; };
+		72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619862BBADE1A000D131F /* ScanQRISViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		72589F0A2BBAA3A00089A237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72589F0C2BBAA3A00089A237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72589F152BBAA7990089A237 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		72D619852BBADE1A000D131F /* ScanQRISViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRISViewController.swift; sourceTree = "<group>"; };
+		72D619862BBADE1A000D131F /* ScanQRISViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanQRISViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +86,28 @@
 		72589F142BBAA6040089A237 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				72D619842BBADDF7000D131F /* Scan QR */,
+				72D619832BBADDDF000D131F /* Home */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		72D619832BBADDDF000D131F /* Home */ = {
+			isa = PBXGroup;
+			children = (
 				72589F022BBAA39F0089A237 /* HomeViewController.swift */,
 				72589F152BBAA7990089A237 /* HomeViewController.xib */,
 			);
-			path = Feature;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		72D619842BBADDF7000D131F /* Scan QR */ = {
+			isa = PBXGroup;
+			children = (
+				72D619852BBADE1A000D131F /* ScanQRISViewController.swift */,
+				72D619862BBADE1A000D131F /* ScanQRISViewController.xib */,
+			);
+			path = "Scan QR";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +170,7 @@
 			files = (
 				72589F0B2BBAA3A00089A237 /* LaunchScreen.storyboard in Resources */,
 				72589F082BBAA3A00089A237 /* Assets.xcassets in Resources */,
+				72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */,
 				72589F162BBAA7990089A237 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72589F032BBAA39F0089A237 /* HomeViewController.swift in Sources */,
+				72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */,
 				72589EFF2BBAA39F0089A237 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
