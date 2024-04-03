@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EEC47F0D-8106-4EF6-B58D-2C210FFAB0AD"
-            shouldBeEnabled = "No"
+            uuid = "48AAC505-D16F-49B4-B541-44BB5BA2ECE6"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QRISApp/Feature/Router.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "navigateToNextScreen()"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "backToHomeScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

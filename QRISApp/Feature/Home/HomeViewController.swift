@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, HomeView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         presenter?.fetchUser()
     }
     
@@ -37,6 +39,6 @@ class HomeViewController: UIViewController, HomeView {
     }
     
     @IBAction private func onPayQRISButtonTapped(_ sender: UIButton) {
-        self.presenter?.navigateToScanQRISScreen()
+        self.presenter?.navigateToScanQRIS()
     }
 }

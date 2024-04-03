@@ -8,34 +8,33 @@
 import Foundation
 
 protocol HomePresenter: BasePresenter {
-    var router: Router? { get set }
-    var interactor: Interactor? { get set }
-    var view: HomeView? { get set }
-    
     func fetchUser()
-    func interactorDidFetchUsers(with result: Result<User, Error>)
-    func navigateToScanQRISScreen()
+    func navigateToScanQRIS()
 }
 
 class HomePresenterImpl: HomePresenter {
-    var router: Router?
-    var interactor: Interactor?
-    var view: HomeView?
+    let router: HomeRouter?
+    let interactor: HomeInteractor?
+    weak var view: HomeView?
     
-    func fetchUser() {
-        interactor?.getUser()
+    init(router: HomeRouter?, interactor: HomeInteractor?, view: HomeView?) {
+        self.router = router
+        self.interactor = interactor
+        self.view = view
     }
     
-    func interactorDidFetchUsers(with result: Result<User, Error>) {
-        switch result {
-        case .success(let success):
-            self.view?.update(with: success)
-        case .failure(let failure):
-            self.view?.update(with: failure.localizedDescription)
+    func fetchUser() {
+        interactor?.getUser { [weak self] result in
+            switch result {
+            case .success(let success):
+                self?.view?.update(with: success)
+            case .failure(let failure):
+                self?.view?.update(with: failure.localizedDescription)
+            }
         }
     }
     
-    func navigateToScanQRISScreen() {
-        router?.navigateToNextScreen()
+    func navigateToScanQRIS() {
+        router?.navigateToScanQRIS()
     }
 }

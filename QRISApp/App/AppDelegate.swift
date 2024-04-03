@@ -13,17 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navController = UINavigationController()
-        navController.navigationBar.isHidden = true
-        navController.interactivePopGestureRecognizer?.isEnabled = false
-        
-        let router = RouterImpl.start()
-        let initialVC = router.entry
-        
-//        navController.pushViewController(initialVC!, animated: false)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = initialVC
+        self.window?.rootViewController = HomeRouterImpl.createModule()
         self.window?.overrideUserInterfaceStyle = .light
         self.window?.makeKeyAndVisible()
         

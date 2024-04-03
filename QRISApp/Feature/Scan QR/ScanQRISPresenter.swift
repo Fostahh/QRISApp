@@ -8,19 +8,21 @@
 import Foundation
 
 protocol ScanQRISPresenter: BasePresenter {
-    var router: Router? { get set }
-    var interactor: Interactor? { get set }
-    var view: ScanQRISView? { get set }
-    
     func backToHomeScreen()
 }
 
 class ScanQRISPresenterImpl: ScanQRISPresenter {
-    var router: Router?
-    var interactor: Interactor?
-    var view: ScanQRISView?
+    let router: ScanQRISRouter?
+    let interactor: ScanQRISInteractor?
+    weak var view: ScanQRISView?
+    
+    init(router: ScanQRISRouter?, interactor: ScanQRISInteractor?, view: ScanQRISView? = nil) {
+        self.router = router
+        self.interactor = interactor
+        self.view = view
+    }
     
     func backToHomeScreen() {
-        router?.backToHomeScreen()
+        router?.popToHomeScreen()
     }
 }
