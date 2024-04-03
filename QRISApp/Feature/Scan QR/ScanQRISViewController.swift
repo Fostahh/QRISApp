@@ -8,11 +8,9 @@
 import UIKit
 import AVFoundation
 
-class ScanQRISViewController: UIViewController {
+class ScanQRISViewController: UIViewController, ScanQRISView {
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
+    var presenter: ScanQRISPresenter?
     
     // MARK: Private Properties
     private let captureSession = AVCaptureSession()
@@ -25,9 +23,7 @@ class ScanQRISViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bindObservers()
-        requestCameraAccess()
+        presenter?.requestCameraAccess()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,32 +35,13 @@ class ScanQRISViewController: UIViewController {
     }
     
     // MARK: Private Methods
-    private func bindObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    @objc private func appDidBecomeActive() {
-        requestCameraAccess()
-    }
-    
-    private func requestCameraAccess() {
-        AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
-            if granted {
-                self?.configureQRScanner()
-            } else {
-                DispatchQueue.main.async { [weak self] in
-                    self?.presentPermissionAlert()
-                }
-            }
-        }
-    }
-    
-    private func presentPermissionAlert() {
+    func showPermissionAlert() {
         let alert = UIAlertController(title: "Camera Access Denied", message: "Please grant access to the camera in Settings to continue.", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { [weak self] _ in
             if let settingURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(settingURL)
+                self?.createBackButton()
             }
         }))
         
@@ -72,12 +49,14 @@ class ScanQRISViewController: UIViewController {
             self?.navigationController?.popViewController(animated: true)
         }))
         
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
     }
     
-    private func configureQRScanner() {
+    func configCamera() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             
             self.captureSession.beginConfiguration()
             
@@ -104,16 +83,17 @@ class ScanQRISViewController: UIViewController {
                 captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                 
                 self.captureSession.commitConfiguration()
-                
-                DispatchQueue.main.async {
-                    self.createLivePreview(self.captureSession)
-                    self.createBackButton()
-                }
-                
-                self.captureSession.startRunning()
             } catch {
                 print("\(error.localizedDescription)")
             }
+            
+            
+            DispatchQueue.main.async {
+                self.createLivePreview(self.captureSession)
+                self.createBackButton()
+            }
+            
+            self.captureSession.startRunning()
         }
     }
     
@@ -135,27 +115,25 @@ class ScanQRISViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        presenter?.backToHomeScreen()
     }
     
-    private func showQRISDetailTransaction(_ value: String) {
-        let valueComponents = value.components(separatedBy: ".")
+    func stopPreviewing() {
+        captureSession.stopRunning()
+        previewLayer?.removeFromSuperlayer()
+    }
+    
+    func showDetailTransaction(_ merchant: String, _ nominal: String, _ id: String) {
         
-        if valueComponents.count == 4 {
-            detailQRISStackView.removeAllArrangedSubviews()
-            detailQRISStackView.isHidden = false
-            confirmPaymentButton.isHidden = false
-            
-            let merchant = "Merchant Name \(valueComponents[2])"
-            let nominal = "Transaction Nominal \(valueComponents[3].IDR)"
-            let id = "Transaction ID \(valueComponents[1].dropFirst(2))"
-            
-            for i in 0...2 {
-                detailQRISStackView.addArrangedSubview(createLabel(i == 0 ? merchant : i == 1 ? nominal : id))
-            }
-            
-            view.layoutIfNeeded()
+        detailQRISStackView.removeAllArrangedSubviews()
+        detailQRISStackView.isHidden = false
+        confirmPaymentButton.isHidden = false
+        
+        for i in 0...2 {
+            detailQRISStackView.addArrangedSubview(createLabel(i == 0 ? merchant : i == 1 ? nominal : id))
         }
+        view.stopLoading()
+        view.layoutIfNeeded()
     }
     
     private func createLabel(_ text: String) -> UILabel {
@@ -168,8 +146,9 @@ class ScanQRISViewController: UIViewController {
         
         return label
     }
+    
     @IBAction func onConfirmPaymentButtonTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(PaymentViewController(), animated: true)
+        presenter?.requestProcessPayment()
     }
 }
 
@@ -179,14 +158,14 @@ extension ScanQRISViewController: AVCaptureMetadataOutputObjectsDelegate {
         didOutput metadataObjects: [AVMetadataObject],
         from connection: AVCaptureConnection
     ) {
-        if !isCaptured, let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            isCaptured = true
-            print(stringValue)
-            captureSession.stopRunning()
-            previewLayer?.removeFromSuperlayer()
-            showQRISDetailTransaction(stringValue)
+        guard !isCaptured, let metadataObject = metadataObjects.first,
+              let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
+              let stringValue = readableObject.stringValue else {
+            return
         }
+        isCaptured = true
+        presenter?.processOutput(string: stringValue)
+        stopPreviewing()
+        view.addSubview(LoadingView(frame: view.bounds))
     }
 }

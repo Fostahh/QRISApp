@@ -40,7 +40,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2M-EF-0er">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="127.66666666666667"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment-success-img" translatesAutoresizingMaskIntoConstraints="NO" id="5su-3a-mlx">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-payment-success" translatesAutoresizingMaskIntoConstraints="NO" id="5su-3a-mlx">
                                     <rect key="frame" x="0.0" y="8" width="361" height="111.66666666666667"/>
                                 </imageView>
                             </subviews>
@@ -82,7 +82,7 @@
     </objects>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
-        <image name="payment-success-img" width="56" height="56"/>
+        <image name="img-payment-success" width="56" height="56"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

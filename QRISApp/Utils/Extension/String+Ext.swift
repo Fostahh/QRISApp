@@ -8,9 +8,13 @@
 import Foundation
 
 extension String {
-    
-    public var IDR: String {
+    var IDR: String {
         return NSNumber(value: Int(self) ?? 0).toIDRCurrency()
     }
-    
+}
+
+extension Substring {
+    var toInt: Int {
+        return Int(String(self)) ?? 0
+    }
 }

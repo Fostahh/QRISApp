@@ -7,8 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: UIViewController, HomeView {
+    
+    var presenter: HomePresenter?
+    
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var balanceTitleLabel: UILabel!
     @IBOutlet private weak var balanceValueLabel: UILabel!
@@ -17,14 +19,19 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        presenter?.fetchUser()
     }
     
-    private func configureViews() {
+    func update(with user: User) {
         userImageView.image = UIImage(named: "bobi")
-        balanceTitleLabel.text = "Balance"
-        historyButton.setTitle("History", for: .normal)
-        payQRISButton.setTitle("Pay QRIS", for: .normal)
+        balanceTitleLabel.text = "Hi, welcome back \(user.username)!"
+        balanceValueLabel.text = user.balance.IDR
+    }
+    
+    func update(with error: String) {
+        print("Ini error \(error)")
     }
 
     @IBAction private func onHistoryButtonTapped(_ sender: UIButton) {
@@ -32,6 +39,6 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction private func onPayQRISButtonTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(ScanQRISViewController(), animated: true)
+        presenter?.navigateToScanQRIS()
     }
 }
