@@ -49,6 +49,8 @@
 		7271D7702BBDA36C003695B6 /* HistoryTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D76F2BBDA36C003695B6 /* HistoryTransactionResponse.swift */; };
 		7271D7722BBDA3B5003695B6 /* HistoryTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271D7712BBDA3B5003695B6 /* HistoryTransaction.swift */; };
 		7271D7782BBDADCB003695B6 /* history_transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7271D7772BBDADCB003695B6 /* history_transactions.json */; };
+		72ADE3662C115CF60044A7A7 /* shared.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ADE3652C115CF60044A7A7 /* shared.xcframework */; };
+		72ADE3672C115CF60044A7A7 /* shared.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72ADE3652C115CF60044A7A7 /* shared.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72D619872BBADE1A000D131F /* ScanQRISViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619852BBADE1A000D131F /* ScanQRISViewController.swift */; };
 		72D619882BBADE1A000D131F /* ScanQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D619862BBADE1A000D131F /* ScanQRISViewController.xib */; };
 		72D619AD2BBB4668000D131F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619AC2BBB4668000D131F /* String+Ext.swift */; };
@@ -56,6 +58,20 @@
 		72D619B12BBB4680000D131F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D619B02BBB4680000D131F /* UIStackView+Ext.swift */; };
 		7FEDEEB82035D2BC65E36D8D /* Pods_QRISApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFE0F6E7446DDD2F95C4265 /* Pods_QRISApp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72ADE3682C115CF60044A7A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				72ADE3672C115CF60044A7A7 /* shared.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		38BE0A647B1698BAF1BDAD65 /* Pods-QRISApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRISApp.debug.xcconfig"; path = "Target Support Files/Pods-QRISApp/Pods-QRISApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +119,7 @@
 		7271D76F2BBDA36C003695B6 /* HistoryTransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransactionResponse.swift; sourceTree = "<group>"; };
 		7271D7712BBDA3B5003695B6 /* HistoryTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTransaction.swift; sourceTree = "<group>"; };
 		7271D7772BBDADCB003695B6 /* history_transactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = history_transactions.json; sourceTree = "<group>"; };
+		72ADE3652C115CF60044A7A7 /* shared.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = shared.xcframework; path = Frameworks/shared.xcframework; sourceTree = "<group>"; };
 		72D619852BBADE1A000D131F /* ScanQRISViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRISViewController.swift; sourceTree = "<group>"; };
 		72D619862BBADE1A000D131F /* ScanQRISViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanQRISViewController.xib; sourceTree = "<group>"; };
 		72D619AC2BBB4668000D131F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -117,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72ADE3662C115CF60044A7A7 /* shared.xcframework in Frameworks */,
 				7FEDEEB82035D2BC65E36D8D /* Pods_QRISApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +370,7 @@
 		B3B55C2182B0B194F204B8D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72ADE3652C115CF60044A7A7 /* shared.xcframework */,
 				EBFE0F6E7446DDD2F95C4265 /* Pods_QRISApp.framework */,
 			);
 			name = Frameworks;
@@ -378,6 +397,7 @@
 				72589EF82BBAA39F0089A237 /* Frameworks */,
 				72589EF92BBAA39F0089A237 /* Resources */,
 				C4F9B45923A31BE49469DB16 /* [CP] Embed Pods Frameworks */,
+				72ADE3682C115CF60044A7A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

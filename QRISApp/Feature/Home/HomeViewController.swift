@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import shared
 
 class HomeViewController: UIViewController, HomeView {
     
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController, HomeView {
         label.font = .systemFont(ofSize: 13)
         label.text = "Balance"
         label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     
@@ -105,6 +107,7 @@ class HomeViewController: UIViewController, HomeView {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.fetchUser()
+        presenter?.fetchDotaHeroes()
         
         view.addSubview(profileContainerView)
         view.addSubview(userImageView)
@@ -112,8 +115,6 @@ class HomeViewController: UIViewController, HomeView {
         view.addSubview(balanceValueLabel)
         view.addSubview(logoutImageView)
         view.addSubview(buttonsStackView)
-        view.addSubview(historyButton)
-        view.addSubview(payQRISButton)
         
         NSLayoutConstraint.activate([
             profileContainerView.heightAnchor.constraint(equalToConstant: 110),
@@ -128,6 +129,7 @@ class HomeViewController: UIViewController, HomeView {
             
             balanceTitleLabel.topAnchor.constraint(equalTo: userImageView.topAnchor, constant: 4),
             balanceTitleLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
+            balanceTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: logoutImageView.leadingAnchor, constant: -8),
             
             balanceValueLabel.topAnchor.constraint(equalTo: balanceTitleLabel.bottomAnchor, constant: 4),
             balanceValueLabel.leadingAnchor.constraint(equalTo: balanceTitleLabel.leadingAnchor),
@@ -165,6 +167,10 @@ class HomeViewController: UIViewController, HomeView {
     
     func update(with error: String) {
         // MARK: TODO
+    }
+    
+    func updateDotaHeroes(with dotaHeroes: [MockResponse]) {
+        balanceTitleLabel.text = "Hi, welcome back \(dotaHeroes[0].name)"
     }
     
     @IBAction private func onHistoryButtonTapped(_ sender: UIButton) {

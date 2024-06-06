@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomePresenter: BasePresenter {
     func fetchUser()
+    func fetchDotaHeroes()
     func navigateToScanQRIS()
     func navigateToHistoryTransaction()
 }
@@ -33,6 +34,18 @@ class HomePresenterImpl: HomePresenter {
                 self?.view?.update(with: failure.localizedDescription)
             }
         }
+    }
+    
+    func fetchDotaHeroes() {
+        interactor.getDotaHeroes(onSuccess: { [weak self] response in
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.updateDotaHeroes(with: response)
+            }
+        }, onError: { [weak self] message in
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.update(with: message)
+            }
+        })
     }
     
     func navigateToScanQRIS() {

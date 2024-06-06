@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import shared
 
 protocol HomeInteractor: BaseInteractor {
     func getUser(completion: (Result<User, Error>) -> Void)
+    func getDotaHeroes(onSuccess: @escaping ([MockResponse]) -> Void, onError: @escaping (String) -> Void)
 }
 
 class HomeInteractorImpl: HomeInteractor {
@@ -26,4 +28,24 @@ class HomeInteractorImpl: HomeInteractor {
             completion(.failure(error))
         }
     }
+    
+    
+    func getDotaHeroes(onSuccess: @escaping ([MockResponse]) -> Void, onError: @escaping (String) -> Void) {
+        DispatchQueue.main.async {
+            do {
+                Task {
+                    try await Greeting().mockRequestAPI(
+                        onSuccess: { response in
+                            onSuccess(response)
+                        },
+                        onError: { message in
+                            onError(message)
+                        }
+                    )
+                }
+            }
+        }
+    }
+    
+    
 }
