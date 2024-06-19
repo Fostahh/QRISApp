@@ -1,6 +1,0 @@
-framework module Pods_QRISApp {
-  umbrella header "Pods-QRISApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
