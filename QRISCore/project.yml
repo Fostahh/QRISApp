@@ -1,0 +1,47 @@
+# Resource
+# https://medium.com/@daviddvd19/xcodegen-first-steps-%EF%B8%8F-a2d4655ced86 | https://github.com/daviwiki/article-xcodegen-firststeps/blob/main/project.yml
+# https://medium.com/@daviddvd19/xcodegen-getting-deeper-2932474a5b59 | https://github.com/daviwiki/article-xcodegen-gettingdeeper/blob/main/project.yml
+
+# Framework configuration for xcodegen
+
+name: QRISCore
+
+options:
+  # Disable code signing for frameworks (usually not required)
+  codeSign: false
+
+  # Set the framework version (adjust based on your needs)
+  frameworkVersion: '1.0.0'
+
+settings:
+    PRODUCT_BUNDLE_IDENTIFIER: "com.mohammadazri.QRISCore"
+    SWIFT_VERSION: 5.0
+    
+targets:
+  # Define your framework target
+  MyFramework:
+    type: framework
+    platform: ios, macos, tvos (or any other supported platform)
+    deploymentTarget: '17.0'  # Minimum supported iOS version
+    settings:
+      # Enable bitcode for framework distribution (optional)
+      ENABLE_BITCODE: 'YES'
+    
+    # Specify source code location (adjust path as needed)
+    sources:
+      - path: QRISCore  # Replace with the path to your framework source code
+
+    # Optional: Exclude specific files or folders
+    excludes:
+      - '**/Tests/**'  # Exclude the Tests folder (if applicable)
+
+# Optional: Add dependencies if your framework uses other frameworks
+#dependencies:
+#  - target: Alamofire  # Example dependency (replace with actual target names)
+#    platformFilter: all  # Include for all platforms
+
+# Optional: Define custom build phases or scripts
+scripts:
+  # Example post-build script
+  post-build: |
+    echo "Framework build completed"
