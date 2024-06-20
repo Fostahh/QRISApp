@@ -15,6 +15,11 @@ settings:
     MARKETING_VERSION: 1
     SWIFT_VERSION: 5.0
         
+        
+postCompileScripts:
+    - name: Swiftlint
+        script: ${PODS_ROOT}/SwiftLint/swiftlint --config ${PODS_ROOT}/../.swiftlint.yml
+        
 targets:
     QRISApp:
         type: application

@@ -2,7 +2,7 @@
 //  QRISCore.h
 //  QRISCore
 //
-//  Created by Azmi Muhammad on 20/06/24.
+//  Created by Mohammad Azri on 20/06/24.
 //
 
 #import <Foundation/Foundation.h>
