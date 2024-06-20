@@ -5,7 +5,7 @@
 //  Created by Mohammad Azri on 03/04/24.
 //
 
-struct PaymentResponse: Codable {
+public struct PaymentResponse: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "transaction_id"
@@ -18,7 +18,7 @@ struct PaymentResponse: Codable {
     let fee: Double
 }
 
-extension PaymentResponse {
+public extension PaymentResponse {
     var toDomain: Payment {
         Payment(
             id: id,

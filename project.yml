@@ -15,11 +15,6 @@ settings:
     MARKETING_VERSION: 1
     SWIFT_VERSION: 5.0
         
-        
-postCompileScripts:
-    - name: Swiftlint
-        script: ${PODS_ROOT}/SwiftLint/swiftlint --config ${PODS_ROOT}/../.swiftlint.yml
-        
 targets:
     QRISApp:
         type: application
@@ -40,7 +35,26 @@ targets:
             CODE_SIGN_STYLE: Automatic
             DEVELOPMENT_TEAM: PKLN85RDQ6
             TARGETED_DEVICE_FAMILY: 1
+        link_binary_with_libraries:
+            - QRISCore.framework:
+                status: optional
+        dependencies:
+            - sdk: QRISCore.framework
+              embed: false
+              weak: true
+        # SwiftLint integration for code style checks
+        postCompileScripts:
+        - script: |
+            if [[ "$(uname -m)" == arm64 ]]; then
+                export PATH="/opt/homebrew/bin:$PATH"
+            fi
 
+            if which swiftlint > /dev/null; then
+                swiftlint
+            else
+                echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+            fi
+          name: Swiftlint
 
 configs:
     Debug: debug

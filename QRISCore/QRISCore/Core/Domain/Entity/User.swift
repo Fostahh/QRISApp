@@ -7,13 +7,19 @@
 
 import Foundation
 
-struct User {
-    let id: Int
-    let username: String
-    let balance: Double
+public struct User {
+    public let id: Int
+    public let username: String
+    public let balance: Double
+    
+    public init(id: Int, username: String, balance: Double) {
+        self.id = id
+        self.username = username
+        self.balance = balance
+    }
 }
 
-extension User {
+public extension User {
     var toEntity: UserEntity {
         UserEntity(
             id: id,

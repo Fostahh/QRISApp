@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QRISCore
 
 class HomeViewController: UIViewController, HomeView {
     

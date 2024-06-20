@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct HistoryTransaction {
-    let id: Int
-    let fee, date: Double
-    let merchant: String
+public struct HistoryTransaction {
+    public let id: Int
+    public let fee, date: Double
+    public let merchant: String
 }

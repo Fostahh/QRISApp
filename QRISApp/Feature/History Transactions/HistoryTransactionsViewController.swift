@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import QRISCore
 
 class HistoryTransactionsViewController: UIViewController, HistoryTransactionsView {
     
@@ -72,7 +73,6 @@ extension HistoryTransactionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyTransactions.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QRISCore
 
 protocol PaymentRouter {
     func backToHomeScreen()

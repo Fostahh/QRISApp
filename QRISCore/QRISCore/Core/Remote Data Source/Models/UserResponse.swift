@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct UserResponse: Codable {
+public struct UserResponse: Codable {
     let id: Int
     let username: String
     let balance: Double
 }
 
-extension UserResponse {
+public extension UserResponse {
     
     var toEntity: UserEntity {
         UserEntity(id: id, username: username, balance: balance)
