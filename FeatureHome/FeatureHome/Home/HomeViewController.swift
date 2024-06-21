@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, HomeView {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.fetchUser()
-        
+        view.backgroundColor = .white
         view.addSubview(profileContainerView)
         view.addSubview(userImageView)
         view.addSubview(balanceTitleLabel)
@@ -161,7 +161,7 @@ class HomeViewController: UIViewController, HomeView {
     func update(with user: User) {
         userImageView.image = UIImage(named: "bobi")
         balanceTitleLabel.text = "Hi, welcome back \(user.username)!"
-        balanceValueLabel.text = user.balance.IDR
+//        balanceValueLabel.text = user.balance.IDR
     }
     
     func update(with error: String) {
@@ -169,10 +169,10 @@ class HomeViewController: UIViewController, HomeView {
     }
     
     @IBAction private func onHistoryButtonTapped(_ sender: UIButton) {
-        presenter?.navigateToHistoryTransaction()
+        presenter?.navigateToHistoryTransaction(view: self)
     }
     
     @IBAction private func onQRISButtonTapped(_ sender: UIButton) {
-        presenter?.navigateToScanQRIS()
+        presenter?.navigateToScanQRIS(view: self)
     }
 }

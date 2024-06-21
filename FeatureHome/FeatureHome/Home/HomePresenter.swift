@@ -10,8 +10,8 @@ import QRISCore_Base
 
 protocol HomePresenter: BasePresenter {
     func fetchUser()
-    func navigateToScanQRIS()
-    func navigateToHistoryTransaction()
+    func navigateToScanQRIS(view: HomeView?)
+    func navigateToHistoryTransaction(view: HomeView?)
 }
 
 class HomePresenterImpl: HomePresenter {
@@ -36,11 +36,11 @@ class HomePresenterImpl: HomePresenter {
         }
     }
     
-    func navigateToScanQRIS() {
-        router.navigateToScanQRIS()
+    func navigateToScanQRIS(view: HomeView?) {
+        router.navigateToScanQRIS(view: view)
     }
     
-    func navigateToHistoryTransaction() {
-        router.navigateToHistoryTransaction()
+    func navigateToHistoryTransaction(view: HomeView?) {
+        router.navigateToHistoryTransaction(view: view)
     }
 }

@@ -11,6 +11,10 @@ target 'QRISApp' do
   pod 'Alamofire'
 end
 
+target 'FeatureHome' do
+  project 'FeatureHome/FeatureHome.xcodeproj'
+end
+
 target 'QRISCore' do
   project 'QRISCore/QRISCore.xcodeproj'
 end
