@@ -7,6 +7,7 @@
 
 import Foundation
 import QRISCore
+import QRISCore_Base
 
 protocol HistoryTransactionsInteractor: BaseInteractor {
     func getHistoryTransactions(completion: (Result<[HistoryTransaction], Error>) -> Void)

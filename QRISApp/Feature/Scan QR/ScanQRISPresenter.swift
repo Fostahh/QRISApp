@@ -7,6 +7,7 @@
 
 import Foundation
 import QRISCore
+import QRISCore_Base
 
 protocol ScanQRISPresenter: BasePresenter {
     func backToHomeScreen()

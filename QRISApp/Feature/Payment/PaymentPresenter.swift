@@ -7,6 +7,7 @@
 
 import UIKit
 import QRISCore
+import QRISCore_Base
 
 protocol PaymentPresenter: BasePresenter {
     func backToHomeScreen()

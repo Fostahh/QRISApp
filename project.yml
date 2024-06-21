@@ -38,10 +38,15 @@ targets:
         link_binary_with_libraries:
             - QRISCore.framework:
                 status: optional
+            - FeatureHome.framework:
+                status: optional
         dependencies:
             - sdk: QRISCore.framework
               embed: false
-              weak: true
+              weak: false
+            - sdk: FeatureHome.framework
+              embed: false
+              weak: false
         # SwiftLint integration for code style checks
         postCompileScripts:
         - script: |

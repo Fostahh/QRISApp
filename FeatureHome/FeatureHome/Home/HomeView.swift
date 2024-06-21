@@ -7,6 +7,7 @@
 
 import Foundation
 import QRISCore
+import QRISCore_Base
 
 protocol HomeView: BaseView {
     var presenter: HomePresenter? { get set }
