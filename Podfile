@@ -1,11 +1,16 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# https://github.com/CocoaPods/CocoaPods/issues/4585
+platform :ios, '17.0'
+
+workspace 'QRISApp'
 
 target 'QRISApp' do
   use_frameworks!
 
-	pod 'RxSwift'
-pod 'RxCocoa'
-pod 'Alamofire'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Alamofire'
+end
 
+target 'QRISCore' do
+  project 'QRISCore/QRISCore.xcodeproj'
 end
