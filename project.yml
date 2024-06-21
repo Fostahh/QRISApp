@@ -41,7 +41,7 @@ targets:
         dependencies:
             - sdk: QRISCore.framework
               embed: false
-              weak: true
+              weak: false
         # SwiftLint integration for code style checks
         postCompileScripts:
         - script: |

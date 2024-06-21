@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore_Base
 
 protocol ScanQRISView: BaseView {
     var presenter: ScanQRISPresenter? { get set }

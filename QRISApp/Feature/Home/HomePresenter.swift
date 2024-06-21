@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore_Base
 
 protocol HomePresenter: BasePresenter {
     func fetchUser()

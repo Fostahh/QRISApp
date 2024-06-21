@@ -7,6 +7,7 @@
 
 import Foundation
 import QRISCore
+import QRISCore_Base
 
 protocol HomeInteractor: BaseInteractor {
     func getUser(completion: (Result<User, Error>) -> Void)

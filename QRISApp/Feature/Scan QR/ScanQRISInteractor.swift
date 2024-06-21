@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import QRISCore
+import QRISCore_Base
 
 protocol ScanQRISInteractor: BaseInteractor { 
     func requestCameraAccess(completion: @escaping (Bool) -> Void)
