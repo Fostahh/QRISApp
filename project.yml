@@ -1,0 +1,76 @@
+# Resource
+# https://medium.com/@daviddvd19/xcodegen-first-steps-%EF%B8%8F-a2d4655ced86 | https://github.com/daviwiki/article-xcodegen-firststeps/blob/main/project.yml
+# https://medium.com/@daviddvd19/xcodegen-getting-deeper-2932474a5b59 | https://github.com/daviwiki/article-xcodegen-gettingdeeper/blob/main/project.yml
+
+name: QRISApp
+
+options:
+    groupSortPositions: top
+    deploymentTarget:
+        iOS: "17.0"
+        
+settings:
+    PRODUCT_BUNDLE_IDENTIFIER: "com.mohammadazri.QRISApp"
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 1
+    SWIFT_VERSION: 5.0
+        
+targets:
+    QRISApp:
+        type: application
+        platform: iOS
+        deploymentTarget: 17.0
+        sources: ["QRISApp"]
+        info:
+            path: QRISApp/File System/Info.plist
+            properties:
+                # This is for permission
+                NSCameraUsageDescription: We need to access your camera to be able to use QRIS feature.
+                
+                # If the app is running successfully BUT the app isn't taking the entire device screen, add code below
+                UILaunchStoryboardName: LaunchScreen
+                
+                UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        settings:
+            CODE_SIGN_STYLE: Automatic
+            DEVELOPMENT_TEAM: PKLN85RDQ6
+            TARGETED_DEVICE_FAMILY: 1
+
+
+configs:
+    Debug: debug
+    Release: release
+    
+archive:
+    config: Debug
+    postActions:
+        - settingsTarget: QRISApp
+            
+schemes:
+    QRISApp-STG:
+        build:
+            targets:
+                QRISApp: all
+        run:
+            config: Debug
+        test:
+            config: Debug
+            gatherCoverageData: true
+        profile:
+            config: Debug
+        analyze:
+            config: Debug
+            
+    QRISApp-PRD:
+        build:
+            targets:
+                QRISApp: all
+        run:
+            config: Release
+        test:
+            config: Release
+            gatherCoverageData: true
+        profile:
+            config: Release
+        analyze:
+            config: Release
