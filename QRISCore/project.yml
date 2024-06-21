@@ -1,0 +1,33 @@
+name: QRISCore
+
+options:
+  codeSign: false
+  frameworkVersion: '1.0.0'
+  deploymentTarget:
+    iOS: "17.0"
+
+settings:
+    PRODUCT_BUNDLE_IDENTIFIER: "com.mohammadazri.QRISCore"
+    SWIFT_VERSION: 5.0
+    
+targets:
+  QRISCore:
+    type: framework
+    platform: iOS
+    settings:
+      # Enable bitcode for framework distribution (optional)
+      ENABLE_BITCODE: 'YES'
+    sources: ["QRISCore"]
+    info:
+        path: QRISCore/File System/Info.plist
+
+# Optional: Add dependencies if your framework uses other frameworks
+#dependencies:
+#  - target: Alamofire  # Example dependency (replace with actual target names)
+#    platformFilter: all  # Include for all platforms
+
+# Optional: Define custom build phases or scripts
+scripts:
+  # Example post-build script
+  post-build: |
+    echo "Framework build completed"

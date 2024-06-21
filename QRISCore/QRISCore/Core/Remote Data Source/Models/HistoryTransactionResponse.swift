@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct HistoryTransactionResponseRoot: Codable {
-    let data: HistoryTransactionResponseRecords
+public struct HistoryTransactionResponseRoot: Codable {
+    public let data: HistoryTransactionResponseRecords
 }
 
-struct HistoryTransactionResponseRecords: Codable {
-    let records: [HistoryTransactionResponse]
+public struct HistoryTransactionResponseRecords: Codable {
+    public let records: [HistoryTransactionResponse]
 }
 
-struct HistoryTransactionResponse: Codable {
+public struct HistoryTransactionResponse: Codable {
     let id: Int
     let fee, date: Double
     let merchant: String
@@ -26,7 +26,7 @@ struct HistoryTransactionResponse: Codable {
     }
 }
 
-extension HistoryTransactionResponse {
+public extension HistoryTransactionResponse {
     static func toDomain(response: [HistoryTransactionResponse]) -> [HistoryTransaction] {
         response.compactMap({ HistoryTransaction(id: $0.id, fee: $0.fee, date: $0.date, merchant: $0.merchant) })
     }

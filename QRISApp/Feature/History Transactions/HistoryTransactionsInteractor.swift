@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore
 
 protocol HistoryTransactionsInteractor: BaseInteractor {
     func getHistoryTransactions(completion: (Result<[HistoryTransaction], Error>) -> Void)

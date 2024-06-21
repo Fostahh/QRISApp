@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore
 
 protocol HistoryTransactionsView: BaseView {
     var presenter: HistoryTransactionsPresenter? { get set }

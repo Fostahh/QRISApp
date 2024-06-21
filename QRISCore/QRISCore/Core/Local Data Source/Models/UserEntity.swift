@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct UserEntity: Codable {
-    let id: Int
-    let username: String
-    let balance: Double
+public struct UserEntity: Codable {
+    public let id: Int
+    public let username: String
+    public let balance: Double
 }
 
 extension UserEntity {

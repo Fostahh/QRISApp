@@ -87,8 +87,7 @@ class ScanQRISViewController: UIViewController, ScanQRISView {
             } catch {
                 print("\(error.localizedDescription)")
             }
-            
-            
+                        
             DispatchQueue.main.async {
                 self.createLivePreview(self.captureSession)
                 self.createBackButton()

@@ -5,12 +5,12 @@
 //  Created by Mohammad Azri on 03/04/24.
 //
 
-struct Payment {
-    let id: Int
-    let fee: Double
-    let paymentStatus: PaymentStatus
+public struct Payment {
+    public let id: Int
+    public let fee: Double
+    public let paymentStatus: PaymentStatus
     
-    init(id: Int, fee: Double, paymentStatus: PaymentStatus) {
+    public init(id: Int, fee: Double, paymentStatus: PaymentStatus) {
         self.id = id
         self.fee = fee
         self.paymentStatus = paymentStatus
@@ -18,7 +18,7 @@ struct Payment {
 }
 
 extension Payment {
-    enum PaymentStatus {
+    public enum PaymentStatus {
         case success
         case failed
         

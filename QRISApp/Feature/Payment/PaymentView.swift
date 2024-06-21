@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore
 
 protocol PaymentView: BaseView {
     var presenter: PaymentPresenter? { get set }

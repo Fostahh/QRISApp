@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QRISCore
 
 protocol PaymentInteractor: BaseInteractor {
     func getUserBalance() -> Double
